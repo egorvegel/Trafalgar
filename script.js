@@ -41,9 +41,8 @@ $(function(){
     })
     $(window).resize(function() {
         if($(this).width() > 800){
-            menu.show(300);
+            menu.css('display', 'block');
         }
-        console.log($(this).width());
     });
 
     /* Плавные ссылки */
