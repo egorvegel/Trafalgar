@@ -1,47 +1,51 @@
 $(function(){
     /*  Кнопка*/
-    let btUp = $('.btnUp');
-    $(btUp).on('click',  function(evt){
+    let btnUp = $('.btnUp');
+    $(btnUp).on('click',  function(evt){
         evt.preventDefault();
-        console.log(this);
+
         $('html').animate({
             scrollTop: 0,
         }, 300)
     })
 
     function checkDis(){
-        if(this.scrollY > 870){
-            $(btUp).show(300);
+        console.log($(this).scrollTop())
+        if($(this).scrollTop() > 800){
+            $(btnUp).css('opacity', 1);
         }else{
-            $(btUp).hide(300);
+            $(btnUp).css('opacity', 0);
         }
     }
     checkDis();
     $(window).on('scroll',  function(){
         checkDis();
     })
-    
+
     /* Слайдер */
     $('.slick_wrap').css('position', 'relative').slick({
         dots: true,
         prevArrow: '<button id="prev" type="button" class="btn slick-prev"></button>',
         nextArrow: '<button id="next" type="button" class="btn slick-next"></button>',
-        
-        adaptiveHeight: true
     });
-    
+
     /* Мобильное меню */
     let menu = $('.nav_menu');
     $('.nav--btn').on('click', function(){
        if($(menu).css('display') == 'none'){
             $(menu).show(300);
+
         }else{
             $(menu).hide(300);
-        }    
+            menu.css('display', 'block');
+        }
     })
-    $(window).resize(function() {
+
+   $(window).resize(function() {
         if($(this).width() > 800){
             menu.css('display', 'block');
+        }else{
+            menu.css('display', 'none');
         }
     });
 
@@ -53,6 +57,5 @@ $(function(){
         $('html').animate({
             scrollTop: elem.offset().top - 100,
         }, 500)
-        $(menu).hide(300);
     })
 })
