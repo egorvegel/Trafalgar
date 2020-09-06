@@ -15,17 +15,20 @@ a {
   text-decoration: none;
 }
 .btnUp {
-  display: none;
-  width: 80px;
-  height: 80px;
+  display: block;
+  width: 60px;
+  height: 60px;
   line-height: 100px;
   border-radius: 50%;
   text-align: center;
-  background-color: #458FF6;
+  opacity: 0;
+
+  background-color:#458FF6;
   color: #ffffff;
   position: fixed;
   right: 5%;
   bottom: 5%;
+  transition: background-color linear 0.3s, opacity linear 0.3s;
 }
 .btnUp:hover {
   background-color: #ff4d36;
